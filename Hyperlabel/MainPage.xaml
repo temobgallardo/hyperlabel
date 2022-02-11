@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:hyperlabel="clr-namespace:Hyperlabel"
              x:Class="Hyperlabel.MainPage">
 
     <StackLayout>
@@ -8,17 +9,12 @@
             <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
         <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!"
+               FontSize="16"
+               Padding="30,0,30,0" />
+        <hyperlabel:HyperLinksbel LinksText="Learn more at &#10; https://aka.ms/xamarin-quickstart &#10; and &#10; https://google.com. &#10; This Xamarin.Forms Forums question can be visited at &#10; https://social.msdn.microsoft.com/Forums/en-US/d27815ce-d60a-43ab-a2b6-0ca3e00167fe/make-multiple-links-in-labels-clickable?forum=xamarinforms#latest &#10; but Google only at &#10; https://www.google.com/"
+                                  FontSize="16"
+                                  Padding="30,0,30,0" />
     </StackLayout>
 
 </ContentPage>
