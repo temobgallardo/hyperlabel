@@ -10,7 +10,7 @@ namespace Hyperlabel
     {
       InitializeComponent();
 
-      Html = "< p >< a href = \"https://dfsm-webportal-ge4.ausvdc02.pcf.dell.com/users\" target = \"_blank\" > https://dfsm-webportal-ge4.ausvdc02.pcf.dell.com</a></p>";
+      Html = "<p><a href = \"https://dfsm-webportal-ge4.ausvdc02.pcf.dell.com/users\" target = \"_blank\">https://dfsm-webportal-ge4.ausvdc02.pcf.dell.com</a></p>";
 
       BindingContext = this;
     }
