@@ -51,7 +51,7 @@ namespace Hyperlabel
         sections.Add(new StringSection() { Text = rawText.Substring(lastIndex, item.Index) });
         lastIndex += item.Index + item.Length;
 
-        // Get HTML href 
+        // Get HTML href
         var html = new StringSection()
         {
           Link = Regex.Match(item.Value, "(?<=href=\\\")[\\S]+(?=\\\")").Value,
