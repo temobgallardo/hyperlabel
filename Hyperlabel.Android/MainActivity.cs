@@ -2,6 +2,7 @@
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using LabelHtml.Forms.Plugin.Droid;
 
 namespace Hyperlabel.Droid
 {
@@ -12,6 +13,7 @@ namespace Hyperlabel.Droid
     {
       base.OnCreate(savedInstanceState);
 
+      HtmlLabelRenderer.Initialize();
       Xamarin.Essentials.Platform.Init(this, savedInstanceState);
       global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
       LoadApplication(new App());
