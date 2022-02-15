@@ -123,6 +123,40 @@ namespace Hyperlabel.Test
     }
 
     [Theory]
+    [InlineData("https://dell.com. https://google.com. Hola", "")]
+    [InlineData("https://dell.com. https://google.com. Hola", null)]
+    public void GetTextNamesAndHyperlinks_Text_Should_Be_Link_If_LinkNamesProp_NullOrEmpty(string text, string linkNames)
+    {
+      var expected = new List<StringSection>()
+      {
+        new StringSection()
+        {
+          HasHyperlink = true,
+          Link = "https://dell.com.",
+          Text = "https://dell.com."
+        },
+        new StringSection()
+        {
+          HasHyperlink = true,
+          Link = "https://google.com.",
+          Text = "https://google.com."
+        },
+        new StringSection()
+        {
+          HasHyperlink = false,
+          Link = "",
+          Text = "Hola"
+        }
+      };
+
+      var sut = new HyperLinksbel();
+
+      var actual = sut.GetTextNamesAndHyperlinks(text, linkNames);
+
+      actual.Should().BeEquivalentTo(expected);
+    }
+
+    [Theory]
     [InlineData("https://google.com. https://google.com. Hola", "Google, ,A")]
     public void GetTextNamesAndHyperlinks_Text_Should_Be_Link_If_Text_Null_Empty(string text, string linkNames)
     {
@@ -317,6 +351,37 @@ namespace Hyperlabel.Test
       Assert.NotNull(actual);
       Assert.Equal(expected, actual);
       Assert.Equal(1, j);
+    }
+
+    [Fact]
+    public void GetANameForLink_Should_Be_Splited_If_Names_Null()
+    {
+      var expected = _fixture.Create<string>();
+      var sut = new HyperLinksbel();
+      int j = 0;
+
+      string actual = sut.GetANameForLink(expected, null, ref j);
+
+      Assert.NotEmpty(actual);
+      Assert.NotNull(actual);
+      Assert.Equal(expected, actual);
+      Assert.Equal(0, j);
+    }
+
+    [Fact]
+    public void GetANameForLink_Should_Be_Splited_If_Names_Empty()
+    {
+      var expected = _fixture.Create<string>();
+      var sut = new HyperLinksbel();
+      int j = 0;
+      var names = new string[] { };
+
+      string actual = sut.GetANameForLink(expected, names, ref j);
+
+      Assert.NotEmpty(actual);
+      Assert.NotNull(actual);
+      Assert.Equal(expected, actual);
+      Assert.Equal(0, j);
     }
   }
 }
