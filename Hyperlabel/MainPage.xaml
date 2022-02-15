@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:hyperlabel="clr-namespace:Hyperlabel"
+             xmlns:abstractions="clr-namespace:LabelHtml.Forms.Plugin.Abstractions;assembly=HtmlLabel.Forms.Plugin"
              x:Class="Hyperlabel.MainPage"
              x:Name="this">
 
@@ -10,27 +11,56 @@
             <Frame BackgroundColor="#2196F3"
                    Padding="24"
                    CornerRadius="0">
-                <Label Text="Welcome to Xamarin.Forms!"
+                <Label Text="{Binding Welcome}"
                        HorizontalTextAlignment="Center"
                        TextColor="White"
                        FontSize="36" />
             </Frame>
-            <Label Text="Start developing now"
-                   FontSize="Title"
-                   Padding="30,10,30,10" />
-            <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!"
-                   FontSize="16"
-                   Padding="30,0,30,0" />
-            <!--<hyperlabel:HyperLinksbel LinksText="Learn more at &#10; https://aka.ms/xamarin-quickstart &#10; and &#10; https://google.com. &#10; This Xamarin.Forms Forums question can be visited at &#10; https://social.msdn.microsoft.com/Forums/en-US/d27815ce-d60a-43ab-a2b6-0ca3e00167fe/make-multiple-links-in-labels-clickable?forum=xamarinforms#latest &#10; but Google only at &#10; https://www.google.com/"
-                                      FontSize="16"
-                                      Padding="30,0,30,0" />-->
-            <hyperlabel:HyperLinksbel LinksText="Learn more at &#10; https://aka.ms/xamarin-quickstart &#10; and &#10; https://google.com. &#10; This Xamarin.Forms Forums question can be visited at &#10; https://social.msdn.microsoft.com/Forums/en-US/d27815ce-d60a-43ab-a2b6-0ca3e00167fe/make-multiple-links-in-labels-clickable?forum=xamarinforms#latest &#10; but Google only at &#10; https://www.google.com/"
-                                      LinksNames="Xamarin quickstart, , Make multiple links clickable on Label ,Google"
-                                      FontSize="16"
-                                      Padding="30,0,30,0" />
+            <Frame CornerRadius="5"
+                   Padding="8"
+                   Margin="8"
+                   BorderColor="Aqua"
+                   BackgroundColor="Black">
+                <StackLayout>
+                    <Label Text="Hyperlabel.HyperLinksbel"
+                           FontSize="Title"
+                           Padding="30,10,30,10" />
+                    <hyperlabel:HyperLinksbel LinksText="Learn more at &#10; https://aka.ms/xamarin-quickstart &#10; and &#10; https://google.com. &#10; This Xamarin.Forms Forums question can be visited at &#10; https://social.msdn.microsoft.com/Forums/en-US/d27815ce-d60a-43ab-a2b6-0ca3e00167fe/make-multiple-links-in-labels-clickable?forum=xamarinforms#latest &#10; but Google only at &#10; https://www.google.com/"
+                                              LinksNames="Xamarin quickstart, , Make multiple links clickable on Label ,Google"
+                                              FontSize="16"
+                                              Padding="30,0,30,0" />
+                    <hyperlabel:HyperLinksbel LinksText="Learn more at &#10; https://aka.ms/xamarin-quickstart &#10; and &#10; https://google.com. &#10; This Xamarin.Forms Forums question can be visited at &#10; https://social.msdn.microsoft.com/Forums/en-US/d27815ce-d60a-43ab-a2b6-0ca3e00167fe/make-multiple-links-in-labels-clickable?forum=xamarinforms#latest &#10; but Google only at &#10; https://www.google.com/"
+                                              FontSize="16"
+                                              Padding="30,0,30,0" />
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="5"
+                   Padding="8"
+                   Margin="8"
+                   BorderColor="Aqua"
+                   BackgroundColor="Black">
+                <StackLayout>
+                    <Label Text="Xamarin.Forms.Label"
+                           FontSize="Title"
+                           Padding="30,0,30,0" />
+                    <Label Text="{Binding Html}"
+                           TextType="Html" />
+                </StackLayout>
+            </Frame>
 
-            <Label Text="{Binding Html}"
-                   TextType="Html" />
+            <Frame CornerRadius="5"
+                   Padding="8"
+                   Margin="8"
+                   BorderColor="Aqua"
+                   BackgroundColor="Black">
+                <StackLayout>
+                    <Label Text="Xam.Plugin.HtmlLabel"
+                           FontSize="Title"
+                           Padding="30,10,30,10" />
+                    <abstractions:HtmlLabel Text="{Binding Html}" />
+                </StackLayout>
+            </Frame>
+
         </StackLayout>
     </ScrollView>
 </ContentPage>
