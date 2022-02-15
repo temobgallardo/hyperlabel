@@ -37,15 +37,8 @@ namespace Hyperlabel
 
     public void SetFormattedText()
     {
-      if (HasNameForLinks(LinksNames))
-      {
-        var linksAndNames = GetTextNamesAndHyperlinks(LinksText, LinksNames);
-        this.FormattedText = SetupHyperlinksAndNames(linksAndNames);
-
-        return;
-      }
-
-      this.FormattedText = SetupHyperlinks(LinksText);
+      var linksAndNames = GetTextNamesAndHyperlinks(LinksText, LinksNames);
+      this.FormattedText = SetupHyperlinksAndNames(linksAndNames);
     }
 
     public List<StringSection> GetTextNamesAndHyperlinks(string text, string linkNames)
@@ -55,18 +48,12 @@ namespace Hyperlabel
         throw new ArgumentNullException(nameof(text));
       }
 
-      if (linkNames is null)
-      {
-        throw new ArgumentNullException(nameof(linkNames));
-      }
-
       var splitText = text.Split(' ');
       var isLinks = splitText.Select(t => Utilities.IsUrl(t)).ToList();
       var linksAndEmpties = splitText.Select(t => Utilities.IsUrl(t) ? t.Trim() : string.Empty).ToList();
-
-      var names = linkNames.Split(',');
-
       var sections = new List<StringSection>(splitText.Length);
+
+      var names = linkNames?.Split(',');
 
       for (int i = 0, j = 0; i < splitText.Length; i++)
       {
@@ -85,13 +72,8 @@ namespace Hyperlabel
 
     public string GetANameForLink(string splitedText, string[] names, ref int j)
     {
-      if (names == null)
-      {
-        throw new ArgumentNullException(nameof(names));
-      }
-
       // not a hyperlink
-      if (j >= names.Length)
+      if (names is null || j >= names.Length)
         return splitedText;
 
       var name = names[j++].Trim();
