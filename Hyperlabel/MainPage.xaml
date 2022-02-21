@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:hyperlabel="clr-namespace:Hyperlabel"
+             xmlns:hyperlabel="clr-namespace:Hyperlabel;assembly=Hyperlabel"
              xmlns:abstractions="clr-namespace:LabelHtml.Forms.Plugin.Abstractions;assembly=HtmlLabel.Forms.Plugin"
              x:Class="Hyperlabel.MainPage"
              x:Name="this">
@@ -58,6 +58,20 @@
                            FontSize="Title"
                            Padding="30,10,30,10" />
                     <abstractions:HtmlLabel Text="{Binding Html}" />
+                </StackLayout>
+            </Frame>
+
+            <Frame CornerRadius="5"
+                   Padding="8"
+                   Margin="8"
+                   BorderColor="Aqua"
+                   BackgroundColor="Black">
+                <StackLayout>
+                    <Label Text="HtmlLabel from proj"
+                           FontSize="Title"
+                           Padding="30,10,30,10" />
+                    <hyperlabel:HtmlLabel Text="{Binding BigHtml}" 
+                                          TextType="Html"/>
                 </StackLayout>
             </Frame>
 

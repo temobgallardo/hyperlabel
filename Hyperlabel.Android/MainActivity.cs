@@ -13,7 +13,7 @@ namespace Hyperlabel.Droid
     {
       base.OnCreate(savedInstanceState);
 
-      HtmlLabelRenderer.Initialize();
+      LabelHtml.Forms.Plugin.Droid.HtmlLabelRenderer.Initialize();
       Xamarin.Essentials.Platform.Init(this, savedInstanceState);
       global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
       LoadApplication(new App());
